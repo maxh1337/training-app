@@ -1,13 +1,17 @@
 import React from "react";
-import Layout from "./components/common/Layout";
-import Home from './components/pages/Home/Home'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/pages/Home/Home";
+import NewWorkout from "./components/pages/NewWorkout/NewWorkout";
 
 const App = () => {
-    return(
-        <Layout>
-            <Home/>
-        </Layout>
-    )
-}
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/new-workout" exact element={<NewWorkout />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
