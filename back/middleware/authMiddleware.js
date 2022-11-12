@@ -1,28 +1,29 @@
-import jwt from "jsonwebtoken";
-import asyncHandler from "express-async-handler";
+import jwt from 'jsonwebtoken'
+import asyncHandler from 'express-async-handler'
 
-import User from "../models/userModel.js";
+import User from '../models/userModel.js'
 
 export const protect = asyncHandler(async (req, res, next) => {
-  let token;
-  if (req.headers.authorization?.startsWith("Bearer")) {
-    token = req.headers.authorization.split(" ")[1];
+	let token
 
-    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN);
+	if (req.headers.authorization?.startsWith('Bearer')) {
+		token = req.headers.authorization.split(' ')[1]
 
-    const userFound = await User.findById(decoded.userId).select("-password");
+		const decoded = jwt.verify(token, process.env.ACCESS_TOKEN)
 
-    if (userFound) {
-      req.user = userFound;
-      next();
-    } else {
-      res.status(401);
-      throw new Error("Не авторизован, токен не работает");
-    }
-  }
+		const userFound = await User.findById(decoded.userId).select('-password')
 
-  if (!token) {
-    res.status(401);
-    throw new Error("Не авторизован, без токена");
-  }
-});
+		if (userFound) {
+			req.user = userFound
+			next()
+		} else {
+			res.status(401)
+			throw new Error('Не авторизован, токен не работает')
+		}
+	}
+
+	if (!token) {
+		res.status(401)
+		throw new Error('Не авторизован, без токена')
+	}
+})

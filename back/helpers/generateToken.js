@@ -1,12 +1,12 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken'
 
 export const generateToken = userId =>
-  jwt.sign(
-    {
-      userId,
-    },
-    process.env.ACCESS_TOKEN,
-    {
-      expiresIn: "10d",
-    }
-  );
+	jwt.sign(
+		{
+			userId,
+		},
+		process.env.ACCESS_TOKEN,
+		{
+			expiresIn: '10d',
+		}
+	)
