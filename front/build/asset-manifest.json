@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cfe89da8.css",
+    "main.js": "/static/js/main.ee1f3fa3.js",
+    "static/media/coachv2.png": "/static/media/coachv2.7a539811dd307ba3eabc.png",
+    "static/media/new-exercise-bg.jpg": "/static/media/new-exercise-bg.e8a6a9e07d89ac9770e5.jpg",
+    "static/media/ex-bg-2.jpg": "/static/media/ex-bg-2.d34f3d1067cd9ef6b058.jpg",
+    "static/media/workout-bg.jpg": "/static/media/workout-bg.f9eabf4d1038bd61e895.jpg",
+    "static/media/ex-bg-1.jpg": "/static/media/ex-bg-1.0a02755de1550df9e312.jpg",
+    "static/media/new-workout.jpg": "/static/media/new-workout.64a1f1e528e769401782.jpg",
+    "static/media/auth.jpg": "/static/media/auth.9eb66263539c3ae6911a.jpg",
+    "static/media/after.jpg": "/static/media/after.3f4b177cfe74e1ff50e3.jpg",
+    "static/media/profile-bg.jpg": "/static/media/profile-bg.7e267b38bd59c5173e77.jpg",
+    "static/media/user.svg": "/static/media/user.5072acd59e5dfa1a1ebeda1b61c2ba8e.svg",
+    "static/media/dumbbell.svg": "/static/media/dumbbell.1b655e51090ff223401e43b82b23019e.svg",
+    "static/media/three-dots.svg": "/static/media/three-dots.fad4b8d2f2efe0e0ff823c1da2a392aa.svg",
+    "static/media/check-completed.svg": "/static/media/check-completed.72c32ebf1b28e4b5e99cc11859bb0c7f.svg",
+    "index.html": "/index.html",
+    "static/media/check.svg": "/static/media/check.80b63008842122f8ee45cab9694e37a7.svg",
+    "static/media/arrow.svg": "/static/media/arrow.c3c36450bb48433c62ab9c6c76feb409.svg",
+    "static/media/hamburger.svg": "/static/media/hamburger.6c95a27622c6e775be733707084bb80c.svg",
+    "static/media/hamburger-close.svg": "/static/media/hamburger-close.7610df6f0876379271d6d7b1ed08b6f1.svg",
+    "main.cfe89da8.css.map": "/static/css/main.cfe89da8.css.map",
+    "main.ee1f3fa3.js.map": "/static/js/main.ee1f3fa3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cfe89da8.css",
+    "static/js/main.ee1f3fa3.js"
+  ]
+}

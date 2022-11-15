@@ -8,15 +8,15 @@ import useOutsideAlerter from "../../../../hooks/useOutsideAlerter";
 import { useAuth } from "../../../../hooks/useAuth";
 
 const Hamburger = () => {
-  const {setIsAuth} = useAuth()
+  const { setIsAuth } = useAuth();
   const { ref, isComponentVisible, setIsComponentVisible } =
     useOutsideAlerter(false);
 
   const HandleLogout = () => {
-    localStorage.removeItem('token')
-    setIsAuth(false)
+    localStorage.removeItem("token");
+    setIsAuth(false);
     setIsComponentVisible(false);
-    setIsComponentVisible(false)
+    setIsComponentVisible(false);
   };
 
   return (
@@ -28,7 +28,8 @@ const Hamburger = () => {
         <img
           src={isComponentVisible ? hamburgerCloseImage : hamburgerImage}
           alt="Menu"
-          height="24px"
+          height="24"
+          width="27"
         />
       </button>
       <nav
