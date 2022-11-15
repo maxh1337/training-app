@@ -10,5 +10,5 @@ export const menu = [
   {
     title: "Profile",
     link: "/profile",
-  }
+  },
 ];

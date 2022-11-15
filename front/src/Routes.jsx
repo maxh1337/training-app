@@ -1,16 +1,30 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Auth from "./components/pages/Auth/Auth";
-import Home from "./components/pages/Home/Home";
-import NewWorkout from "./components/pages/NewWorkout/NewWorkout";
+import error404 from "./components/pages/404.jsx";
+import {useAuth} from "./hooks/useAuth"; 
+
+import { routes } from "./dataRoutes.js";
 
 const App = () => {
+  const { isAuth } = useAuth();
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/new-workout" exact element={<NewWorkout />} />
-        <Route path="/auth" exact element={<Auth />} />
+        {routes.map((route) => {
+          if (route.auth && !isAuth) {
+            return false;
+          }
+          return (
+            <Route
+              path={route.path}
+              exact={route.exact}
+              key={`route ${route.path}`}
+              element={<route.component />}
+            />
+          );
+          
+        })}
+        <Route component={error404} />
       </Routes>
     </Router>
   );

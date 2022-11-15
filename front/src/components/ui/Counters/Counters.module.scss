@@ -4,16 +4,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &.profile{
+        >.count .heading{
+            color: $accent;
+        }
+    }
     >.count{
+        width: 27%;
         font-size: 24px;
         text-align: center;
+        @media (max-width: $mobile) {
+            font-size: 18px;
+          }
         .heading{
-            color: $purple;
+            color: rgb(235, 19, 8);
             text-transform: capitalize;
+            font-weight: 400;
         }
         .number{
             font-weight: bold;
-            color: #fff;
+            color: $purple;
         }
     }
 }

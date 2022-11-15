@@ -8,34 +8,71 @@ import Alert from "../../ui/Alert/Alert";
 import { useMutation } from "react-query";
 import { $api } from "../../api/api";
 import Loader from "../../ui/Loader";
+import { useAuth } from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 const Auth = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [type, setType] = React.useState("auth"); // auth or register
 
+  const navigate = useNavigate();
+  const { setIsAuth } = useAuth();
+
+  const successLogin = (token) => {
+    localStorage.setItem("token", token);
+    setIsAuth(true);
+
+    setPassword("");
+    setEmail("");
+
+    navigate("/");
+  };
+
   const {
     mutate: register,
     isLoading,
     error,
-  } = useMutation("Registration", () =>
-    $api({
-      url: "/users",
-      type: "POST",
-      body: { email, password },
-      auth: false,
-    }), {
-      onSuccess(data){
-        console.log(data)
-      }
+  } = useMutation(
+    "Registration",
+    () =>
+      $api({
+        url: "/users",
+        type: "POST",
+        body: { email, password },
+        auth: false,
+      }),
+    {
+      onSuccess(data) {
+        successLogin(data.token);
+      },
     }
   );
 
-
+  const {
+    mutate: auth,
+    isLoading: isLoadingAuth,
+    error: errorAuth,
+  } = useMutation(
+    "Auth",
+    () =>
+      $api({
+        url: "/users/login",
+        type: "POST",
+        body: { email, password },
+        auth: false,
+      }),
+    {
+      onSuccess(data) {
+        successLogin(data.token);
+      },
+    }
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (type === "auth") {
-      console.log("Auth");
+      auth();
+      
     } else {
       register();
     }
@@ -46,7 +83,8 @@ const Auth = () => {
       <Layout bgImage={bgImage} heading="Auth || Register" />
       <div className="wrapper-inner-page">
         {error && <Alert type="error" text={error} />}
-        {isLoading && <Loader />}
+        {errorAuth && <Alert type="error" text={errorAuth} />}
+        {(isLoading || isLoadingAuth) && <Loader />}
         <form onSubmit={handleSubmit}>
           <Field
             type="text"
