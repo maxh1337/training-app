@@ -1,3 +1,0 @@
-[] Сделать удаление отдельных тренировок и упражнений с сервера путем взаимодействия с UI
-
-"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build --prefix front" 

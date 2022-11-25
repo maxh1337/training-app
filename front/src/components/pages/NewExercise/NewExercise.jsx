@@ -28,8 +28,8 @@ const NewExercise = () => {
     {
       onSuccess() {
         setName("");
-        setTimes();
-        setImageName("");
+        setTimes(1);
+        setImageName("chest");
       },
     }
   );

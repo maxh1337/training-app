@@ -16,7 +16,6 @@ const Hamburger = () => {
     localStorage.removeItem("token");
     setIsAuth(false);
     setIsComponentVisible(false);
-    setIsComponentVisible(false);
   };
 
   return (

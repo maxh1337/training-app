@@ -10,6 +10,7 @@ import Loader from "../../ui/Loader";
 
 const ListWorkouts = () => {
   const navigate = useNavigate();
+  
   const { data, isSuccess } = useQuery(
     "get all workouts",
     () =>
